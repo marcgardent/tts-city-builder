@@ -1,0 +1,740 @@
+
+# improvement:
+# * add keywords for the autocompletion: tags, title, description, properties
+# * add pipelines for the autocompletion: |fromParmeters, |fromGlossary...
+# * fix color syntax
+# * fix snippet autocompletion
+# * handle common errors : yaml syntax, nunjucks syntax, svg syntax
+#   * display errors : "Map keys must be unique; "🎴cityCard" is repeated"
+# * implement the goto 📐definition
+
+
+🎴cityCard:
+  title: city card
+  description:
+  tags: 💠abstract
+  properties: ✅provide 🚮discard 🏗️build
+
+🤍quantity:
+  tags: 💠abstract
+  description: |
+    it describe quantity  of something
+    
+    💖🤎🧡💛💚💙💜🤍🖤
+
+📦byGame:
+  title: by game
+  description: 🤍quantity defined by game
+
+🧑‍🤝‍🧑byPlayer:
+  title: by player
+  description: 🤍quantity defined by player
+
+💖unique:
+  tags: 🤍quantity  
+  description: 1 instance
+
+💜exceptionnel:
+  tags: 🤍quantity
+  description: 2 instances
+
+🧡rare:
+  description: 4 instances
+
+💛common:
+  description: 8 instances
+
+🤍plain:
+  description: 16 instances
+
+## Slots
+
+🏛️bank:
+  description: reserve of unplayed items
+
+🃏trash:
+  description: trash of player
+
+🃏cityStack:
+  description: deck of player
+
+🖐️hand:
+  description: playable 🎴cityCard of the player
+
+
+## Money
+
+💰money:
+  tags: 💠abstract
+  description: |
+
+      > 1😃happiness + 1😡anger = 0💰money 
+
+😃happiness:
+  tags: 🎴cityCard 💰money 🤍plain 🧑‍🤝‍🧑byPlayer
+  description: |
+    You can use 😃happiness from your 🖐️hand to buy something.
+    but you have to discard in the 🏛️bank.
+
+😡anger:
+  tags: 🎴cityCard 💰money 🤍plain 🧑‍🤝‍🧑byPlayer
+  description: |
+    You can get unlimited 😡anger from the 🏛️bank to buy something.
+    but you have to add this in your 🃏trash.
+
+    in order to clear your 😡anger, you can settle during your turn:
+
+    * discard 1😡anger and 1😃happiness from your 🖐️hand to the 🏛️bank
+
+## Side Effects
+
+💢painfullCard:
+  title: painful card
+  tags: 💠abstract
+  description: |
+    how to use it for each case?
+
+    * 🏗️build & ✅provide: transfert 💢painfullCard from the 🏛️bank to your 🃏trash
+    * 🚮discard: transfert 💢painfullCard from your 🖐️hand to the 🏛️bank if you have!
+
+    > in another word, you can't use your 💢painfullCard in your 🖐️hand to 🏗️build something
+
+🌫️pollution:
+  tags: 🎴cityCard 💢painfullCard 💛common 🧑‍🤝‍🧑byPlayer
+
+🚦jumpTraffic:
+  title: jump traffic
+  tags: 🎴cityCard 💢painfullCard 💛common 🧑‍🤝‍🧑byPlayer
+  description: |
+    you can convert 3🚦jumpTraffic to 1🌫️pollution
+
+💸crime:
+  tags: 🎴cityCard 💢painfullCard 💛common 🧑‍🤝‍🧑byPlayer
+  description: petty & serouis & white-collar crime
+  ✅provide: 😡anger
+
+## Ressources
+
+🛣️move:
+  description: take one 🎴cityCard from your 🃏cityStack to your 🖐️hand.
+
+🏙️activity:
+  description: resolve on card in your hands and discard in your 🃏trash.
+  tags: 💠abstract
+
+## Indicators
+
+✅provide:
+  description: income when the card is actived 
+
+🚮discard:
+  description: outcome when the card is actived
+
+🏗️build:
+  description: outcome when the card is built
+
+📑for:
+  description: usable only for
+
+## 🏙️activity
+
+🏭industry:
+  tags: 🎴cityCard 💜exceptionnel 🧑‍🤝‍🧑byPlayer
+  ✅provide: 2🌫️pollution 3🏙️activity
+  🚮discard: 1🏙️activity 
+  🏗️build: 5💰money
+
+🏢skyscraper:
+  tags: 🎴cityCard 💜exceptionnel 🧑‍🤝‍🧑byPlayer
+  ✅provide: 3🏙️activity 1💸crime
+  🚮discard: 1🏙️activity
+  🏗️build: 5💰money
+
+🏪shop: {}
+
+## education
+
+🏫school: {}
+👮police: {}
+⚖️justice: {}
+
+## hobbies
+
+⛲square:
+  tags: 🎴cityCard 🧡rare 🧑‍🤝‍🧑byPlayer
+  ✅provide: 😃happiness
+  🚮discard: 1🏙️activity
+
+🎭theatre: {}
+🎠carouselHorse: {}
+🎡 FerrisWheel: {}
+
+## Transports
+
+🚗car:
+  tags: 🎴cityCard 💛common 🧑‍🤝‍🧑byPlayer
+  ✅provide: 3🛣️move 1🚦jumpTraffic 1🌫️pollution 1🗺️transportCard 
+  🏗️build: 2💰money
+  🚮discard: 1🏙️activity
+
+🚴‍♂️bike:
+  tags: 🎴cityCard 💛common 🧑‍🤝‍🧑byPlayer
+  ✅provide: 1🛣️move 1🏙️activity 1🗺️transportCard
+  🚮discard: 1🏙️activity 1🚦jumpTraffic 
+  🏗️build: 2🚦jumpTraffic
+
+Ⓜ️metro:
+  tags: 🎴cityCard 💛common 🧑‍🤝‍🧑byPlayer
+  ✅provide: 1🛣️move 1🗺️transportCard
+  🚮discard: 1🏙️activity 2🚦jumpTraffic 
+  🏗️build: 5💰money 5🚦jumpTraffic
+
+### Transport Event
+
+🗺️transportStack:
+  title: transport Stack
+  tags: 🃏eventStack
+
+🗺️transportCard:
+  title: transport
+  tags: ⚡event
+
+🛠️MetroUpkeep:
+  title: Metro Upkeep
+  tags: 🗺️transportCard 💖unique 📦byGame
+  ✅provide: 1🚦jumpTraffic
+  📑for: Ⓜ️metro
+
+🛠️bikeUpkeep:
+  title: bike Upkeep
+  tags: 🗺️transportCard 💖unique 📦byGame
+  ✅provide: 1😡anger
+  📑for: 🚴‍♂️bike
+
+🛠️carUpkeep1:
+  title: car Upkeep
+  tags: 🗺️transportCard 💖unique 📦byGame
+  ✅provide: 1😡anger
+  📑for: 🚗car
+
+🛠️carUpkeep2:
+  title: car Upkeep
+  tags: 🗺️transportCard 💖unique 📦byGame
+  ✅provide: 2😡anger
+  📑for: 🚗car
+
+🌞sunlight:
+  tags: 🗺️transportCard 💖unique 📦byGame
+  ✅provide: 1😃happiness
+  📑for: 🚴‍♂️bike
+
+🌧️rain:
+  tags: 🗺️transportCard 💖unique 📦byGame
+  ✅provide: 1😡anger
+  📑for: 🚴‍♂️bike
+
+### Engine
+
+⚡event:
+  tags: 🃏card
+
+🃏eventStack: 
+  description: |
+    it is lottery of events happened when you use something:
+
+    * shuffle **all** ⚡event
+    * get and resolve immediately the ⚡event.
+
+  tags: 🃏stack
+
+
+######################################
+## printing
+
+⏹myLayout:
+  tags: ⏹layout
+  📄format: 🃏poker 
+  🔄orientation: 🔄portrait
+  📏paddings: 4📏mm
+  📏bleeds: 0📏mm
+  📏corners: 4📏mm
+
+🖼️theTransportDeck:
+  tags: 🖼️collection 
+  📑foreach:
+    - { 📑among: 🗺️transportCard, 🖨️copies: 1, 🎴back: 🗺️transportCard}
+  ⏹layout: ⏹myLayout
+  📐template: 📐myGenericTemplate
+  📐parameters:
+    ⬛left: 🚮discard
+    ⬛right: ✅provide
+    ⬛bottom: 🏗️build
+    ⬛header: 📑for
+
+🖼️theDeckByPlayer:
+  tags: 🖼️collection 
+  📑foreach:
+    - { 📑among: 🧑‍🤝‍🧑byPlayer, 📑with: 🎴cityCard 💖unique, 🖨️copies: 1, 🎴back: 🏠cityBuilder}
+    - { 📑among: 🧑‍🤝‍🧑byPlayer, 📑with: 🎴cityCard 💜exceptionnel, 🖨️copies: 2, 🎴back: 🏠cityBuilder}
+    - { 📑among: 🧑‍🤝‍🧑byPlayer, 📑with: 🎴cityCard 🧡rare, 🖨️copies: 4, 🎴back: 🏠cityBuilder}
+    - { 📑among: 🧑‍🤝‍🧑byPlayer, 📑with: 🎴cityCard 💛common,  🖨️copies: 8, 🎴back: 🏠cityBuilder}
+    - { 📑among: 🧑‍🤝‍🧑byPlayer, 📑with: 🎴cityCard 🤍plain, 🖨️copies: 16, 🎴back: 🏠cityBuilder}
+  ⏹layout: ⏹myLayout
+  📐template: 📐myGenericTemplate
+  📐parameters:
+    ⬛left: 🚮discard
+    ⬛right: ✅provide
+    ⬛bottom: 🏗️build
+    ⬛header: 📑for
+
+🖼️theDeckByGame:
+  tags: 🖼️collection 
+  📑foreach:
+    - { 📑among: 📦byGame, 📑with: 🎴cityCard 💖unique, 🖨️copies: 1, 🎴back: 🏠cityBuilder}
+    - { 📑among: 📦byGame, 📑with: 🎴cityCard 💜exceptionnel, 🖨️copies: 2, 🎴back: 🏠cityBuilder}
+    - { 📑among: 📦byGame, 📑with: 🎴cityCard 🧡rare, 🖨️copies: 4, 🎴back: 🏠cityBuilder}
+    - { 📑among: 📦byGame, 📑with: 🎴cityCard 💛common,  🖨️copies: 8, 🎴back: 🏠cityBuilder}
+    - { 📑among: 📦byGame, 📑with: 🎴cityCard 🤍plain, 🖨️copies: 16, 🎴back: 🏠cityBuilder}
+  ⏹layout: ⏹myLayout
+  📐template: 📐myGenericTemplate
+  📐parameters:
+    ⬛left: 🚮discard
+    ⬛right: ✅provide
+    ⬛bottom: 🏗️build
+    ⬛header: 📑for
+
+🛑ReviewPrint: 
+  tags: 🖨️printing
+  📑foreach:
+    - { 📑is: 🖼️theTransportDeck }
+    - { 📑is: 🖼️theDeckByGame  }
+    - { 📑is: 🖼️theDeckByPlayer }
+  🖨️mode: 🛑review
+  📏density: 300📏dpi
+  📏margins: 0📏mm  
+
+🖨️StarterKitDIY:
+  description: all cards to play for one
+  tags: 🖨️assembling
+  📑foreach:
+    - { 📑is: 🖼️theTransportDeck }
+    - { 📑is: 🖼️theDeckByGame }
+    - { 📑is: 🖼️theDeckByPlayer }
+  🖨️mode: 🚀production
+  📄format: 📄A4
+  ➕marks: ➕cross
+  🔄orientation: 🔄landscape
+  📏margins: 15📏mm
+  📏gutters: 0📏mm
+  📏density: 300📏dpi  
+
+🖨️BaseDIY:
+  description: common cards for all players
+  tags: 🖨️assembling
+  📑foreach:
+    - { 📑is: 🖼️theTransportDeck }
+    - { 📑is: 🖼️theDeckByGame }
+
+  🖨️mode: 🚀production
+  📄format: 📄A4
+  ➕marks: ➕cross
+  🔄orientation: 🔄landscape
+  📏margins: 15📏mm
+  📏gutters: 0📏mm
+  📏density: 300📏dpi  
+
+🖨️additionalPlayerDIY:
+  description: all cards for additionnal player
+  tags: 🖨️assembling
+  📑foreach:
+    - { 📑is: 🖼️theDeckByPlayer }
+  🖨️mode: 🚀production
+  📄format: 📄A4
+  ➕marks: ➕cross
+  🔄orientation: 🔄landscape
+  📏margins: 15📏mm
+  📏gutters: 0📏mm 
+  📏density: 300📏dpi 
+
+
+
+########################################################################################
+
+🎲myTabletop:
+  description: hello!
+
+📐myTTSImport:
+  tags: 📐document
+  📐template: 📐ImportTTSScriptTemplate
+  📐parameters:
+    localUrl: 'file://d:/temp/deck-builder'
+    baseUrl: 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01'
+    🖨️printing: 🛑ReviewPrint
+
+  📑foreach: { 📑is: 🎲myTabletop }
+
+📦myTTSBundle:
+  tags: 📦bundle
+  📦filename: citybuilder-tts.zip
+  📑foreach:
+    - { 📑is: 📐myTTSImport }
+    - { 📑is: 🛑ReviewPrint }
+    - { 📑is: 🖨️backPrinting }
+
+########################################################################################
+########################################################################################
+
+🎴back:
+  description: |
+    define the back card in the 📐document 📑request
+    implemented only by 📐ImportTTSScriptTemplate
+
+📐ImportTTSScriptTemplate:
+  tags: 📐nunjucks
+  📐extension: 'ttslua'
+  📐definition: |
+    
+    {{ 'https://raw.githubusercontent.com/tjakubo2/Decker/master/Decker.ttslua' | includeAsText | safe }}
+    -- The protoBG Code
+    
+    function deck(cardUrl, backUrl, quantity)
+      local card = Decker.Card(Decker.Asset(cardUrl, backUrl))
+      
+      if quantity == 1 then
+        return card
+      else
+        cards = {}    -- new array
+        for i=1, quantity do
+          table.insert(cards,card)
+        end
+        return Decker.Deck(cards)
+      end
+    end
+
+    local decks = {}
+
+    {% set baseUrl = 'baseUrl' | fromParameters %}
+    {% set printing = '🖨️printing' | fromParameters |fromGlossary %}
+    {% set collections =  printing['📑foreach'] | request %}
+
+    {% for collection in collections %}
+
+    -- from {{ collection.result.name }}
+      {% set cards = collection.result['📑foreach'] | request %}
+      {% for card in cards %}
+      {% set copies = card.request['🖨️copies'] %}
+      {% set back = baseUrl + '/' + (card.request['🎴back'] | fromGlossary).name + '.png' %}
+      {% set front = baseUrl + '/' + card.result.name + '.png' %}
+      table.insert(decks, deck('{{front}}', '{{back}}', {{copies}}))
+      {% endfor %}
+    {% endfor %}
+
+    function mySpawn()
+      for i,v in ipairs(decks) do
+        v:spawn({position = {-30+(i*3), 5, 0}})
+      end
+    end
+    
+    function onChat(message,  sender)
+      if message == 'go!' then
+        mySpawn()
+      end
+    end
+
+########################################################################################
+
+📐backcardTemplate:
+  tags: 📐nunjucks
+  📐extension: svg
+  📐definition: |
+    <svg xmlns="http://www.w3.org/2000/svg" 
+    width="{{ width }}"
+    height="{{ height }}" viewBox="0 0 {{ width }} {{ height }}" >
+      <g id="bleedLayer" transform="translate({{bleedbox.x}}, {{bleedbox.y}})">
+        <rect fill="lightgray" id="bleedbox" x="0" y="0" width="{{bleedbox.width}}" height="{{bleedbox.height}}"/>
+      </g>
+      <g id="trimLayer" transform="translate({{trimbox.x}}, {{trimbox.y}})">
+        <rect id="trimbox" x="0" y="0" width="{{trimbox.width}}" height="{{trimbox.height}}"
+            fill="lightgray" rx="{{trimbox.corners}}" ry="{{trimbox.corners}}"/>
+      </g>
+      <g id="artLayer" transform="translate({{artbox.x}}, {{artbox.y}})">
+        <rect id="artbox" x="0" y="0" width="{{artbox.width}}" height="{{artbox.height}}"
+        rx="{{trimbox.corners}}" ry="{{trimbox.corners}}" fill="black" />
+        <text style="font-family: sans-serif;font-size:15" x="{{artbox.width/2}}" y="{{artbox.height/2}}" text-anchor="middle">
+            {{ 'icon' | fromModel }}
+        </text>
+        <text style="font: small-caps bold 8px sans-serif" x="{{artbox.width/2}}" y="{{artbox.height/2+12}}" text-anchor="middle" fill="lightgray">
+            {{ 'title' | fromModel }}
+        </text>
+      </g>
+    </svg>
+
+🏠cityBuilder:
+  title: City Builder
+  description: Deck builder
+
+🖼️backCollection:
+  tags: 🖼️collection
+  ⏹layout: ⏹myLayout
+  📐template: 📐backcardTemplate
+  📐parameters: {}
+  📑foreach:
+    - { 📑is: 🏠cityBuilder}
+    - { 📑is: 🗺️transportCard}
+
+🖨️backPrinting:
+  tags: 🖨️printing
+  📑foreach:
+    - { 📑is: 🖼️backCollection, 🖨️copies: 10}
+  🖨️mode: 🚀production
+  📏margins: 0📏mm
+  📏density: 300📏dpi
+
+########################################################################################
+
+########################################################################################
+
+
+
+
+
+📐myGenericTemplate:
+  tags: 📐nunjucks 
+  📐extension: 'svg'
+  📐definition: |
+    {% set content = {
+      corners: trimbox.corners/2,
+      cell: artbox.width/5,
+      halfCell: artbox.width/5*0.5,
+      quarterCell:artbox.width/5*0.25,
+      threeQuarterCell:artbox.width/5*0.75,
+      middleX: artbox.width/2, 
+      middleY: artbox.height/2 
+      }
+    %}
+
+    {% set left = {
+        quantities: '⬛left' | fromParameters | fromModel |default([]) | arrayOfQuantities,
+        action: '⬛left' | fromParameters | fromGlossary | default({icon:'❓'})
+      }
+    %}
+    {% set right = {
+        quantities: '⬛right' | fromParameters | fromModel |default([]) | arrayOfQuantities,
+        action: '⬛right' | fromParameters | fromGlossary | default({icon:'❓'})
+      }
+    %}
+
+    {% set bottom = {
+        quantities: '⬛bottom' | fromParameters | fromModel |default([]) | arrayOfQuantities,
+        action: '⬛bottom' | fromParameters | fromGlossary | default({icon:'❓'})
+      }
+    %}
+
+    {% set header = {
+        quantities: '⬛header' | fromParameters | fromModel |default([]) | arrayOfQuantities,
+        action: '⬛header' | fromParameters | fromGlossary | default({icon:'❓'})
+      }
+    %}
+
+    {% set footer = {
+        quantities: '⬛footer' | fromParameters | fromModel |default([]) | arrayOfQuantities,
+        action: '⬛footer' | fromParameters | fromGlossary | default({icon:'❓'})
+      }
+    %}
+
+    {% macro badge(x,y, size, emoji) %}
+      <rect class="badge"
+      rx="{{size/2}}" ry="{{size/2}}"
+      x="{{x-size/2}}" y="{{y-size/2}}" width="{{size}}" height="{{size}}"></rect>
+      <text x="{{x}}" y="{{y}}" style="font-size:{{size*3}}%">
+        {{emoji}}
+      </text>
+    {% endmacro %}
+
+    {% macro vRibbon(name, x, y, data) %}
+      {% if data.quantities.length  > 0 %}
+        {% set ribbonSize = content.halfCell + data.quantities.length * content.halfCell %}
+        <g id="{{name}}"  transform="translate({{x}}, {{y-ribbonSize/2}})">
+
+          <rect class="ribbon vertical background" x="-{{content.halfCell}}" y="0"
+                width="{{content.cell}}" height="{{ribbonSize}}" 
+                rx="{{content.corners}}" ry="{{content.corners}}"></rect>
+
+          {{ badge(x=0, y=0, size=content.quarterCell, emoji=data.action.icon) }}
+          
+          {% for item in data.quantities %}
+          <text class="ribbon vertical item"  x="0" y="{{content.halfCell+loop.index0*content.halfCell}}">
+              {{item.value}}{{item.unit.icon}}
+          </text>
+          {% endfor %}
+        </g>
+      {% endif %}
+    {% endmacro %}
+    
+    {% macro hRibbon(name, x, y, data) %}
+      {% if data.quantities.length  > 0 %}
+        {% set ribbonSize = content.halfCell + data.quantities.length * content.cell*0.7 %}
+        {% set step = ribbonSize / (data.quantities.length+1) %}
+        <g id="{{name}}" transform="translate({{x -ribbonSize/2}}, {{y}})">
+          <rect class="ribbon horizontal background" x="0" y="-{{content.threeQuarterCell}}"
+                width="{{ribbonSize}}" height="{{content.cell}}" 
+                rx="{{content.corners}}" ry="{{content.corners}}"></rect>
+          {{ badge(x=ribbonSize/2, y=-content.threeQuarterCell, size=content.quarterCell, emoji=data.action.icon) }}
+
+          {% for item in data.quantities %}
+          <text class="ribbon horizontal item"  x="{{loop.index*step}}" y="-{{content.quarterCell}}">
+              {{item.value}}{{item.unit.icon}}
+          </text>
+          {% endfor %}
+        </g>
+        {% endif %}
+    {% endmacro %}
+
+    <svg xmlns="http://www.w3.org/2000/svg" 
+    width="{{ width }}"
+    height="{{ height }}" viewBox="0 0 {{ width }} {{ height }}">
+      <defs>
+        <style type="text/css"><![CDATA[
+          
+          .badge {
+            fill:lightgray;
+            stroke:white;
+            stroke-width : 0.3%;
+          }
+
+          #bleedbox, #trimbox {
+            fill:lightgray;
+          }
+
+          #trimbox {
+            fill:lightgray;
+            rx: {{trimbox.corners}};
+            ry: {{trimbox.corners}};
+            stroke-width : 0;
+          }
+
+          #artbox {
+          stroke-width : 1;
+          fill :white;
+          rx : {{content.corners}};
+          ry : {{content.corners}};
+          }
+
+          text {
+            font-family: game-icons, sans-serif;
+            font-size:{{content.cell*4}}%;
+            fill: black;
+            text-anchor: middle;
+            alignment-baseline:middle;
+          }
+
+          rect.ribbon.background{
+            fill : lightgray;
+          }
+
+          #header > rect.ribbon.background, #footer > rect.ribbon.background {
+            fill : white;
+            stroke: lightgray;
+            stroke-width: 0.4;
+          }
+
+          #title > rect.background {
+            fill:white;
+          }
+
+          #title > text {
+             font-weight:bold;
+             font-size:{{content.cell*3}}%;
+          }
+
+          text.ribbon.item{
+            font-size:{{content.cell*2}}%;
+            text-anchor: middle;
+            alignment-baseline:middle;
+          }
+
+          #emoji{
+            font-size:{{content.cell*10}}%;
+          }
+
+          #body > rect.background{
+            stroke-width: 0;
+            stroke: black;
+            fill: white;
+            filter: url(#fshadow)
+          }
+
+          #subtitle > text {
+             font-size:{{content.cell}}%;
+             fill: gray;
+          }
+
+        ]]></style>
+        <filter id="fshadow" x="0" y="0" width="200%" height="200%">
+          <feOffset result="offOut" in="SourceAlpha" dx="0.5" dy="0.5" />
+          <feGaussianBlur result="blurOut" in="offOut" stdDeviation="0.5" />
+          <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+        </filter>
+        <filter id="fbw" color-interpolation-filters="sRGB">
+          <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0"/>
+          <feComponentTransfer>
+            <feFuncR type="discrete" tableValues="0 1"/>
+            <feFuncG type="discrete" tableValues="0 1"/>
+            <feFuncB type="discrete" tableValues="0 1"/>
+          </feComponentTransfer>
+        </filter>
+        <filter id="fgray" x="0" y="0" width="200%" height="200%">
+          <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0"/>
+        </filter>
+      </defs>
+
+
+      <!-- BLEED LAYER-->
+      <g id="bleedLayer" transform="translate({{bleedbox.x}}, {{bleedbox.y}})">
+        <rect id="bleedbox" x="0" y="0" width="{{bleedbox.width}}" height="{{bleedbox.height}}"/>
+      </g>
+      
+      <!-- TRIM LAYER-->
+      <g id="trimLayer" transform="translate({{trimbox.x}}, {{trimbox.y}})">
+        <rect id="trimbox" x="0" y="0" width="{{trimbox.width}}" height="{{trimbox.height}}"/>
+      </g>
+
+      <!-- ART LAYER-->
+      <g id="artLayer" transform="translate({{artbox.x}}, {{artbox.y}})"
+       >
+        <rect id="artbox"
+        x="0" y="0"
+        width="{{artbox.width}}" height="{{artbox.height}}"
+         />
+         <g id="title">
+          <rect class="background"
+          x="0" y="0"
+          width="{{artbox.width}}" height="{{content.cell}}"
+          rx="{{content.corners}}" ry="{{content.corners}}"
+          /> 
+          <text x="{{content.middleX}}" y="{{content.halfCell}}">
+              {{'icon' | fromModel}}{{ ['title','name'] | fromModel}}
+          </text>
+        </g>
+
+        <g id="body" transform="translate({{content.middleX}}, {{content.middleY}})">
+          <rect class="background"
+          x="-{{content.cell}}" y="-{{content.cell}}"
+          width="{{content.cell*2}}" height="{{content.cell*2}}"
+          rx="{{content.corners}}" ry="{{content.corners}}"
+          />
+            <text id="emoji" x="0" y="0">
+                {{'icon' | fromModel}}
+            </text>
+        </g>
+
+        <g id="subtitle" transform="translate({{content.middleX}}, {{content.cell}})">
+        <text> {{ 'tags'| fromModel | arrayFromGlossary | arrayOfDisplayName | join(' ') }} </text>
+        </g>
+        {{ vRibbon("left", content.quarterCell, content.middleY, left) }}
+        {{ vRibbon("right", artbox.width-content.quarterCell, content.middleY, right) }}
+        {{ hRibbon("footer", content.middleX, artbox.height* 0.8, footer) }}
+        {{ hRibbon("header", content.middleX, artbox.height* 0.3, header) }}
+        {{ hRibbon("bottom", content.middleX, artbox.height, bottom) }}
+      </g>
+    </svg>
