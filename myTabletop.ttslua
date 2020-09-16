@@ -428,32 +428,32 @@ local decks = {}
   
   
   
-  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/MetroUpkeep.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/transportCard.png', 1))
+  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/MetroUpkeep.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/transportCard.png', 1))
   
   
   
   
-  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/bikeUpkeep.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/transportCard.png', 1))
+  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/bikeUpkeep.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/transportCard.png', 1))
   
   
   
   
-  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/carUpkeep1.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/transportCard.png', 1))
+  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/carUpkeep1.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/transportCard.png', 1))
   
   
   
   
-  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/carUpkeep2.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/transportCard.png', 1))
+  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/carUpkeep2.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/transportCard.png', 1))
   
   
   
   
-  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/sunlight.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/transportCard.png', 1))
+  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/sunlight.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/transportCard.png', 1))
   
   
   
   
-  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/rain.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/transportCard.png', 1))
+  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/rain.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/transportCard.png', 1))
   
 
 
@@ -468,57 +468,57 @@ local decks = {}
   
   
   
-  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/industry.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/cityBuilder.png', 2))
+  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/industry.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/cityBuilder.png', 2))
   
   
   
   
-  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/skyscraper.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/cityBuilder.png', 2))
+  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/skyscraper.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/cityBuilder.png', 2))
   
   
   
   
-  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/square.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/cityBuilder.png', 4))
+  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/square.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/cityBuilder.png', 4))
   
   
   
   
-  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/pollution.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/cityBuilder.png', 8))
+  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/pollution.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/cityBuilder.png', 8))
   
   
   
   
-  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/jumpTraffic.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/cityBuilder.png', 8))
+  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/jumpTraffic.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/cityBuilder.png', 8))
   
   
   
   
-  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/crime.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/cityBuilder.png', 8))
+  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/crime.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/cityBuilder.png', 8))
   
   
   
   
-  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/car.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/cityBuilder.png', 8))
+  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/car.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/cityBuilder.png', 8))
   
   
   
   
-  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/bike.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/cityBuilder.png', 8))
+  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/bike.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/cityBuilder.png', 8))
   
   
   
   
-  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/metro.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/cityBuilder.png', 8))
+  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/metro.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/cityBuilder.png', 8))
   
   
   
   
-  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/happiness.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/cityBuilder.png', 16))
+  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/happiness.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/cityBuilder.png', 16))
   
   
   
   
-  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/anger.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01/cityBuilder.png', 16))
+  table.insert(decks, deck('https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/anger.png', 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha/cityBuilder.png', 16))
   
 
 

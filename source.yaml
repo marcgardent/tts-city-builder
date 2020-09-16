@@ -368,7 +368,7 @@
   📐template: 📐ImportTTSScriptTemplate
   📐parameters:
     localUrl: 'file://d:/temp/deck-builder'
-    baseUrl: 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/version-01'
+    baseUrl: 'https://raw.githubusercontent.com/marcgardent/tts-city-builder/v0.1-alpha'
     🖨️printing: 🛑ReviewPrint
 
   📑foreach: { 📑is: 🎲myTabletop }
